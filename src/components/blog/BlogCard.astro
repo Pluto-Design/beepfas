@@ -1,0 +1,18 @@
+---
+import moment from 'moment'
+const { imagePath, title, postedOn, href }: { [key: string]: string } = Astro.props;
+
+---
+
+<a class="w-full my-4 max-sm:h-24 h-72 flex flex-col sm:flex-row cursor-pointer" href={href}>
+    <img class="hidden sm:flex max-w-[250px] lg:max-w-sm h-full rounded-l-xl object-cover" src={imagePath} />
+    <div class="flex flex-1 justify-center items-start border sm:border-l-0 flex-col border-gray-300 px-4 md:px-16 rounded-xl sm:rounded-l-none">
+        <h1 class="font-bold pt-4 pb-2 text-black lg:text-xl 2xl:text-5xl">{title}</h1>
+        <p class="font-bold pb-2 lg:text-lg 2xl:text-2xl text-gray-500 my-2">
+            Posted on 
+            <span class="font-bold text-dark-red lg:text-lg 2xl:text-2xl">{moment(postedOn).format("MMMM Do YYYY, h:mm:ss a")}</span> 
+            | by 
+            <span class="font-bold text-dark-red lg:text-lg 2xl:text-2xl">BEEP</span>
+        </p>
+    </div>
+</a>

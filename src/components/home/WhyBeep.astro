@@ -1,0 +1,30 @@
+---
+import WhyBeepCard from "./WhyBeepCard.astro";
+
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+---
+
+<section class="w-full h-auto flex flex-col py-8 items-center" id="about">
+    <div class="w-11/12 2xl:w-auto py-4 px-4 2xl:px-24 mt-16 rounded-xl bg-bright-red flex items-center justify-center">
+        <p class="text-white text-base lg:text-2xl 2xl:text-4xl font-bold">{t('whyBeep')}</p>
+    </div>
+
+    <div class="w-full mt-16 2xl:mt-36 h-auto flex flex-col 2xl:flex-row justify-evenly items-center">
+        <WhyBeepCard icon="/assets/icons/location.svg" 
+            title={t('whyBeep.one')}
+            text={t('whyBeep.oneDesc')}
+        />
+        <WhyBeepCard icon="/assets/icons/time.svg" 
+            title={t('whyBeep.two')}
+            text={t('whyBeep.twoDesc')}
+        />
+        <WhyBeepCard icon="/assets/icons/location.svg"
+            title={t('whyBeep.three')}
+            text={t('whyBeep.threeDesc')}
+        />
+    </div>
+</section>

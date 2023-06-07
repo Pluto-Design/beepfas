@@ -1,0 +1,39 @@
+---
+import axios from 'axios';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Intro from '../components/blog/Intro.astro';
+import Content from '../components/blog/Content.astro';
+import BlogCard from '../components/blog/BlogCard.astro';
+import Layout from '../layouts/Layout.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
+import { api_url } from '../consts';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+let blogs = await axios(`${api_url}/api/v1/blog/get`)
+.catch((error: Error) => console.error(error));
+
+export type Post = {
+    title: string;
+    mainContent: string;
+    postedOn: number;
+    imagePath: string;
+    slug: string;
+}
+
+---
+
+<Layout title="BEEP FAS - Blog">
+    <BlogLayout>
+        {blogs ? (
+            blogs.data.blog.map((post: Post) => <BlogCard imagePath={post.imagePath} title={post.title} postedOn={post.postedOn} href={`/blog/${post.slug}`} />)
+        ) : (
+            <div class="w-full flex flex-1 items-center my-8 justify-center py-4">
+                <h1 class="text-5xl text-black font-bold">{t("blog.noBlogs")}</h1>    
+            </div>
+        )}
+    </BlogLayout>
+</Layout>

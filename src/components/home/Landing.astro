@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="w-full h-96 flex items-center pt-28 justify-center relative">
+    <img src="/assets/home-landing.png" class="w-full h-full absolute left-0 object-cover z-10" />
+    <div class="w-full h-full absolute left-0 bg-black opacity-70 z-20"></div>
+    <div class="w-11/12 2xl:w-1/2 h-full flex flex-col items-center justify-center z-30">
+        <h3 class="z-30 text-white text-base md:text-2xl text-center">BEEP - Financial Advice Service</h3>
+        <h1 class="z-30 text-white text-xl md:text-4xl font-black text-center">{t("landing")}</h1>
+    </div>
+</section>

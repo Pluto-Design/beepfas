@@ -1,0 +1,14 @@
+---
+
+interface Props {
+    title: string;
+}
+
+const { title }: Props = Astro.props;
+
+---
+
+<div class="w-full lg:w-1/2 h-auto lg:px-8 my-4 flex flex-row items-center justify-start">
+    <img src="/assets/icons/tick.svg" alt="tick svg icon" class="w-8 h-8" />
+    <p class="mx-2 text-bright-red font-bold text-base lg:text-2xl">{title}</p>
+</div>

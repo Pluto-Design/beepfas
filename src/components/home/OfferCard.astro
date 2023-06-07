@@ -1,0 +1,54 @@
+---
+
+interface Props {
+    title: string;
+    functions: string[];
+}
+
+const { title, functions }: Props = Astro.props;
+
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+---
+
+<script>
+    import { Modal } from 'flowbite'
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const callus = document.getElementsByClassName("modal-toggler-offercard") as HTMLCollectionOf<HTMLElement>;
+        
+        const $modalElement: HTMLElement | null = document.querySelector('#offerCardModal');
+        const modal = new Modal($modalElement);
+
+        const showModal = () => {
+            modal.toggle();
+        }
+
+        callus[0].addEventListener('click', showModal)
+        document.getElementsByClassName('offercard-btn')[0].addEventListener('click', showModal)
+        document.getElementsByClassName('offercard-btn')[1].addEventListener('click', showModal)
+    })
+
+</script>
+
+<div class="w-full md:w-7/12 lg:w-full h-[30rem] m-4 flex flex-col">
+    <div class="w-full shadow-2xl rounded-xl mb-5 flex flex-1 py-2 flex-col items-start justify-start">
+        <p class="rounded-t-xl bg-bright-red w-full text-xl text-white font-bold py-3 text-center">{title}</p>
+
+        <div class="flex flex-1 items-center justify-start flex-col w-full">
+            {functions.map((o: string) => {
+                return (
+                    <div class="w-full h-auto flex flex-row items-center justify-start p-4">
+                        <img src="/assets/icons/tick.svg" alt="tick icon svg" class="w-10 mx-2 h-full pointer-events-none" />
+                        <p class="text-base text-start xl:text-xl px-2 text-bright-red font-bold">{o}</p>    
+                    </div>
+                )
+            })}
+        </div>
+    </div>
+
+    <button class="w-full bg-bright-red rounded-xl py-3 text-white text-xl font-bold offercard-btn">{t("buyNow")}</button>
+</div>

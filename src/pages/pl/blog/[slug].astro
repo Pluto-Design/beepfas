@@ -1,0 +1,65 @@
+---
+import axios from "axios";
+import BlogLayout from "../../../layouts/BlogLayout.astro";
+import Layout from "../../../layouts/Layout.astro";
+import moment from "moment";
+import { api_url } from "../../../consts";
+
+    let { slug } = Astro.params;
+    let isError = false;
+    let errorMessage = "";
+    let title = "";
+    let mainContent = "";
+    let postedOn = "";
+    let imagePath = "";
+
+    if (!slug) {
+        isError = true;
+        errorMessage = `This page doesn't exist. Please check the URL.`;
+        return
+    }
+
+    try {
+        const res = await axios(`${api_url}/api/v1/blog/get/${slug}`)
+        
+        const { blog } = res.data;
+
+        title = blog.title;
+        mainContent = blog.mainContent;
+        postedOn = blog.postedOn;
+        imagePath = blog.imagePath;
+    } catch (err) {
+        isError = true;
+        errorMessage = `This page doesn't exist. Please check the URL.`;
+    }
+---
+
+<script define:vars={{ mainContent }}>
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        const mainContentEl = document.getElementById("mainContent");
+
+        mainContentEl.innerHTML = mainContent;
+    })
+
+</script>
+
+<Layout title={title || "Error, page not found"}>
+    <BlogLayout>
+        <section class="w-full h-full flex flex-col">
+            {isError && `This page doesn't exist. Please check the URL.`}
+
+            {!isError && (
+                <>
+                    <img src={imagePath} class="max-md:max-w-xs max-h-96 rounded-xl" />
+                    <section class="w-full h-full px-4">
+                        <h1 class="text-5xl font-bold py-2">{title}</h1>
+                        <p class="text-base font-bold text-gray-500">Posted on <span class="font-bold text-dark-red">{moment(postedOn).format("MMMM Do YYYY, h:mm:ss a")}</span> | by <span class="font-bold text-dark-red">BEEP</span></p>    
+                        
+                        <p class="flex flex-1 text-md mt-8" id="mainContent">{mainContent}</p>
+                    </section>
+                </>
+            )}
+        </section>
+    </BlogLayout>
+</Layout>

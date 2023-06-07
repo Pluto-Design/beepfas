@@ -1,0 +1,111 @@
+---
+
+import { Icon } from 'astro-icon';
+import ReviewCard from './ReviewCard.astro'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<script>
+    let offset = 0;
+
+    let buttonLeft = document.getElementById('review-scroll-button-left') as HTMLElement;
+    let buttonRight = document.getElementById('review-scroll-button-right') as HTMLElement;
+    let cardContainer = document.getElementById('review-card-container') as HTMLElement
+
+    buttonLeft.addEventListener('click', () => {
+        let w = cardContainer.scrollWidth;
+
+        if (offset < 0) {
+            offset = 0
+        }
+
+        if (offset == 0) {
+            offset = w;
+            return cardContainer.scrollTo({
+                top: 0,
+                left: w,
+                behavior: 'smooth'
+            });
+        }
+
+        if (cardContainer.offsetLeft == w) {
+            offset = 0
+            return cardContainer.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        offset -= 100
+
+        cardContainer.scrollTo({
+            top: 0,
+            left: offset,
+            behavior: 'smooth'
+        });
+    });
+
+    buttonRight.addEventListener('click', () => {
+        let w = cardContainer.scrollWidth;
+
+        if (offset >= w) {
+            offset = 0
+        }
+
+        if (cardContainer.offsetLeft == w) {
+            offset = 0
+            return cardContainer.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        offset += 100
+
+        cardContainer.scrollTo({
+            top: 0,
+            left: offset,
+            behavior: 'smooth'
+        });
+    });
+
+    cardContainer.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+
+</script>
+
+<div class="w-full flex items-center justify-center mt-12">
+    <h1 class="text-5xl text-bright-red font-bold">{t("reviews")}</h1>
+</div>
+
+<section class="w-full h-80 flex justify-start items-center flex-row relative overflow-hidden">
+    <div class="h-full flex items-end lg:items-center justify-center left-0 ml-4 absolute w-16 z-30">
+        <button class="w-16 h-16 flex items-center justify-center" id="review-scroll-button-left">
+            <Icon name="ic:round-keyboard-double-arrow-left" />
+        </button>
+    </div>
+    <div class="w-full h-full lg:px-16 overflow-hidden relative flex flex-row items-center justify-start" id="review-card-container">
+        <ReviewCard title="Jimmy" stars={5} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={5} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+        <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
+    </div>
+    <div class="h-full flex items-end lg:items-center justify-center right-0 mr-4 absolute w-16 z-30">
+        <button class="w-16 h-16 flex items-center justify-center" id="review-scroll-button-right">
+            <Icon name="ic:round-keyboard-double-arrow-right" />
+        </button>
+    </div>
+</section>

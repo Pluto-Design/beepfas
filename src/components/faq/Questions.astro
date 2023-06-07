@@ -1,0 +1,31 @@
+---
+import JsonQuestions from "../../../public/assets/data/FAQQuestions.json";
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+
+
+<main class="w-full  h-auto flex items-center flex-col justify-center mt-32 mb-16">
+    <section class="w-full lg:w-1/2 h-full">
+        <div id="accordion-collapse" data-accordion="collapse" class="w-full border px-2 lg:p-8">
+            {JsonQuestions[lang].map((o: { title: string, text?: string }, i: number) => {
+                return (
+                    <h2 id={`accordion-flush-heading-${i + 1}`}>
+                        <button type="button" class="p-4 text-lg lg:text-2xl font-bold flex items-center justify-between w-full py-5 text-left !text-black border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target={`#accordion-flush-body-${i + 1}`} aria-expanded="true" aria-controls={`accordion-flush-body-${i + 1}`}>
+                            <span>{o.title}</span>
+                            <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </h2>
+                    <div id={`accordion-flush-body-${i + 1}`} class="hidden" aria-labelledby={`accordion-flush-heading-${i + 1}`}>
+                        <div class="py-5 px-4 border-b border-gray-200 dark:border-gray-700">
+                            {o.text}
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+    </section>
+</main>
