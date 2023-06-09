@@ -24,7 +24,7 @@ export const ui = {
     'nav.contact': "Contact",
     'nav.blog': "Blog",
     'nav.faq': "FAQ",
-    'worksector.range': "Range of Activities",
+    'worksector.range': "Range of Services",
     'reviews': "Reviews",
     'whyBeep': "Why choose BEEP?",
     'whyBeep.one': "Internationalism",
