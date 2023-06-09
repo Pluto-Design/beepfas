@@ -32,7 +32,7 @@ export const ui = {
     'whyBeep.three': "Versatility",
 
     'offerCardFunctions.one': "Abonament Partnership",
-    'offerCardFunctions.two': "Abonament Abonament LTD",
+    'offerCardFunctions.two': "Abonament LTD",
     'buyNow': "Contact Us",
 
     'whyBeep.oneDesc': `
