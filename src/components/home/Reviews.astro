@@ -23,7 +23,7 @@ const t = useTranslations(lang);
 
             currentIndex = currentIndex - 1;
 
-            cardContainer.children[currentIndex].scrollIntoView({
+            cardContainer.children[currentIndex - 1].scrollIntoView({
                 behavior: 'smooth',
                 block: 'nearest',
                 inline: 'start'
@@ -34,7 +34,7 @@ const t = useTranslations(lang);
             if (currentIndex === cardContainer.children.length - 1) {
                 return;
             }
-        
+            
             currentIndex = currentIndex + 1;
 
             cardContainer.children[currentIndex].scrollIntoView({
@@ -43,12 +43,6 @@ const t = useTranslations(lang);
                 inline: 'start'
             })
         });
-
-        cardContainer.children[0].scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'start'
-        })
     })
 
 </script>
