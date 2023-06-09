@@ -31,8 +31,8 @@ export type Post = {
         {blogs ? (
             blogs.data.blog.map((post: Post) => <BlogCard imagePath={post.imagePath} title={post.title} postedOn={post.postedOn} href={`/blog/${post.slug}`} />)
         ) : (
-            <div class="w-full flex flex-1 items-center my-8 justify-center py-4">
-                <h1 class="text-5xl text-black font-bold">{t("blog.noBlogs")}</h1>    
+            <div class="w-full flex flex-1 items-center my-8 justify-center px-8 py-4">
+                <h1 class="text-5xl text-black font-bold text-center">{t("blog.noBlogs")}</h1>    
             </div>
         )}
     </BlogLayout>

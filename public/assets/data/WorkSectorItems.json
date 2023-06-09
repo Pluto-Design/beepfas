@@ -1,26 +1,12 @@
 {
-    "en": [
-        "LTD companies",
-        "Payroll Withdrawal System",
-        "VAT settlements",
-        "CIS system for the construction sector",
-        "One-person companies",
-        "Translation of company and ordinary documents into Polish and English",
-        "Partner companies", "Refunds of overpaid tax",
-        "Business and individual insurance",
-        "Hypothetical Loans",
-        "Debt relief in the government's IVA Debt Plan system"
-    ],
-    "pl": [
-        "Firmy LTD", 
-        "System Wypłat Payroll", 
-        "Rozliczenia VAT", 
-        "System CIS dla sektora budowlanego", 
-        "Firmy jednoosobowe", 
-        "Tłumaczenie dokumentów firmowych i zwykłych na polski i angielski", 
-        "Firmy partnerskie", "Zwroty nadpłaconego podatku",
-        "Ubezpieczenia biznesowe i indywidualne",
-        "Kredyty hipotetyczne", 
-        "Oddłużenia w rządowym systemie IVA Debt Plan"
-    ]
+    "en": {
+        "companies": ["LTD Companies", "Partnership Companies", "Sole Proprietorships", "Payroll Payment System"],
+        "taxes": ["VAT Settlements", "CIS System for the Construction Sector", "Refunds of Overpaid Taxes"],
+        "other": ["Pensions", "Document Translations in Polish and English", "Business and Individual Insurance", "Mortgages", "Debt Relief under the IVA Debt Plan"]
+    },
+    "pl": {
+        "companies": ["Firmy LTD", "Firmy Partnerskie", "Firmy Jednoosobowe", "System wypłat payroll"],
+        "taxes": ["Rozliczenia VAT", "System CIS dla sektora budowlanego", "Zwroty nadpłaconych podatków"],
+        "other": ["Emerytury", "Tłumaczenia dokumentów na polski i angielski", "Ubezpieczenia biznesowe i indywidualne", "Kredyty hipoteczne", "Oddłużenia w systemie IVA Debt Plan"]
+    }
 }

@@ -73,7 +73,10 @@ export const ui = {
 
     'blog.noBlogs': "No blogs recovered.",
     "error.pageNotFound": "Page not found!",
-    "error.backToHome": "Go back to the homepage"
+    "error.backToHome": "Go back to the homepage",
+    'workSector.companies': "Companies",
+    'workSector.taxes': "Taxes",
+    "workSector.other": "Other"
   },
   pl: {
     'landing': "Profesjonalne biuro księgowe z Ashford, które mówi Twoim językiem!",
@@ -132,6 +135,9 @@ export const ui = {
 
     'blog.noBlogs': "Brak blogów.",
     "error.pageNotFound": "Strona nie została znaleziona!",
-    "error.backToHome": "Wróć na stronę główną"
+    "error.backToHome": "Wróć na stronę główną",
+    'workSector.companies': "Firmy",
+    'workSector.taxes': "Podatki",
+    "workSector.other": "Inne"
   },
 } as const;

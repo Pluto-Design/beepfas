@@ -9,75 +9,46 @@ const t = useTranslations(lang);
 ---
 
 <script>
-    let offset = 0;
+    document.addEventListener("DOMContentLoaded", () => {
+        let currentIndex = 0;
 
-    let buttonLeft = document.getElementById('review-scroll-button-left') as HTMLElement;
-    let buttonRight = document.getElementById('review-scroll-button-right') as HTMLElement;
-    let cardContainer = document.getElementById('review-card-container') as HTMLElement
+        let buttonLeft = document.getElementById('review-scroll-button-left') as HTMLElement;
+        let buttonRight = document.getElementById('review-scroll-button-right') as HTMLElement;
+        let cardContainer = document.getElementById('review-card-container') as HTMLElement
 
-    buttonLeft.addEventListener('click', () => {
-        let w = cardContainer.scrollWidth;
+        buttonLeft.addEventListener('click', () => {
+            if (currentIndex === 0) {
+                return;
+            }
 
-        if (offset < 0) {
-            offset = 0
-        }
+            currentIndex = currentIndex - 1;
 
-        if (offset == 0) {
-            offset = w;
-            return cardContainer.scrollTo({
-                top: 0,
-                left: w,
-                behavior: 'smooth'
-            });
-        }
-
-        if (cardContainer.offsetLeft == w) {
-            offset = 0
-            return cardContainer.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        offset -= 100
-
-        cardContainer.scrollTo({
-            top: 0,
-            left: offset,
-            behavior: 'smooth'
+            cardContainer.children[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+            })
         });
-    });
 
-    buttonRight.addEventListener('click', () => {
-        let w = cardContainer.scrollWidth;
+        buttonRight.addEventListener('click', () => {
+            if (currentIndex === cardContainer.children.length - 1) {
+                return;
+            }
+        
+            currentIndex = currentIndex + 1;
 
-        if (offset >= w) {
-            offset = 0
-        }
-
-        if (cardContainer.offsetLeft == w) {
-            offset = 0
-            return cardContainer.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        offset += 100
-
-        cardContainer.scrollTo({
-            top: 0,
-            left: offset,
-            behavior: 'smooth'
+            cardContainer.children[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+            })
         });
-    });
 
-    cardContainer.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
+        cardContainer.children[0].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+        })
     })
 
 </script>
@@ -92,7 +63,7 @@ const t = useTranslations(lang);
             <Icon name="ic:round-keyboard-double-arrow-left" />
         </button>
     </div>
-    <div class="w-full h-full lg:px-16 overflow-hidden relative flex flex-row items-center justify-start" id="review-card-container">
+    <div class="w-full h-full ml-8 lg:px-16 overflow-hidden relative flex flex-row items-center justify-start" id="review-card-container">
         <ReviewCard title="Jimmy" stars={5} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
         <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
         <ReviewCard title="Jimmy" stars={3} text="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order." />
