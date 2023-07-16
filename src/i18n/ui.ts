@@ -27,41 +27,43 @@ export const ui = {
     'worksector.range': "Range of Services",
     'reviews': "Reviews",
     'whyBeep': "Why choose BEEP?",
-    'whyBeep.one': "Internationalism",
-    'whyBeep.two': "Effectivity",
-    'whyBeep.three': "Versatility",
+    'whyBeep.one': "Localization",
+    'whyBeep.two': "Flexibility",
+    'whyBeep.three': "Efficiency",
 
     'offerCardFunctions.one': "Abonament Partnership",
     'offerCardFunctions.two': "Abonament LTD",
     'buyNow': "Contact Us",
 
     'whyBeep.oneDesc': `
-      We operate mainly 
-      in Ashford and Maidstone (Kent), 
-      but we also provide comprehensive 
-      services to clients from other regions 
-      of England and Scotland. We operate in 
-      both English and Polish.
+      We operate mainly in Kent,
+      but our office in Ashford
+      and comprehensive customer service
+      from other parts of England and Scotland.
+      We serve English and Polish-speaking clients.
     `,
 
     'whyBeep.twoDesc': `
-      We run remote accounting without the need 
-      to make an appointment with us in person. 
-      We contact our clients by phone or the Internet, 
-      which saves time and travel costs.
+      We offer the possibility
+      meetings with the client in
+      our office or remotely
+      over the phone/internet, co
+      saves time and travel costs.
     `,
 
     'whyBeep.threeDesc': `
-      We serve LTD companies, 
-      sole proprietorships and individuals. 
-      We do not close ourselves to various 
-      industries and we are ready to take up 
-      any challenge.
+      We take care of the main service
+      company ltd, activities
+      one person and clients
+      individual, but network
+      our contacts allows
+      to reach professionals
+      from other areas related to finance.
     `,
     'phone': "Phone",
     'offer': "Offer",
     'offer.disclaimer': "For customers interested in online accounting (QuickBooks), we offer a discount on the purchase of a monthly subscription.",
-    'offer.freeConsult': "Make an appointment for a free consultation",
+    'offer.freeConsult': "Make an appointment for a consultation",
     'offer.timeOpen': "Opening hours: Monday-Friday 9:00 - 18:00 Saturday 9:00 - 13:00",
     'offer.name': "Name",
     'offer.email': "Your Email",
@@ -88,42 +90,42 @@ export const ui = {
     'worksector.range': "Zakres działalności",
     'reviews': "Opinie",
     'whyBeep': "Dlaczego warto wybrać BEEP?",
-    'whyBeep.one': "Międzynarodowość",
-    'whyBeep.two': "Efektywność",
-    'whyBeep.three': "Wszechstronność",
+    'whyBeep.one': "Lokalizacja",
+    'whyBeep.two': "Elastyczność",
+    'whyBeep.three': "Efektywność",
     'offerCardFunctions.one': "Abonament Partnership",
     'offerCardFunctions.two': "Abonament Abonament LTD",
     'buyNow': "Skontaktuj się z nami",
 
     'whyBeep.oneDesc': `
-      Działamy głównie na terenie 
-      Ashford i Maidstone (Kent), 
-      ale zajmujemy się także kompleksową 
-      obsługą klientów z innych regionów 
-      Anglii i Szkocji. Działamy zarówno 
-      po angielsku jak i po polsku.
+      Działamy głównie na terenie Kent, 
+      ale nasze biuro w Ashford zajmuje 
+      się także kompleksową obsługą klientów 
+      z innych regionów Anglii i Szkocji. 
+      Obsługujemy klientów angielsko i polskojęzycznych.
     `,
 
     'whyBeep.twoDesc': `
-      Prowadzimy zdalną księgowość 
-      bez potrzeby umawiania się z 
-      nami osobiście. Kontaktujemy 
-      się z naszymi klientami przez 
-      telefon lub internet, co pozwala 
-      na oszczędność czasu i kosztów podróży.
+      Oferujemy możliwość 
+      spotkania z klientem w 
+      naszym biurze lub zdalnie 
+      przez telefon/internet, co 
+      pozwala na oszczędność czasu i kosztów podróży.
     `,
 
     'whyBeep.threeDesc': `
-      Obsługujemy spółki LTD, 
-      działalności jednoosobowe 
-      oraz osoby fizyczne. 
-      Nie zamykamy się na różne branże 
-      i jesteśmy gotowi podjąć każde wyzwanie.
+      Zajmujemy sie glownie obsluga 
+      spolek ltd, dzialalnoscia 
+      jednoosobowa i klientami 
+      indywidualnymi, ale siec 
+      naszych kontaktow pozwala 
+      na dotarcie do profesjonalistow 
+      z innych dziedziz zwiazanych z finansami.
     `,
     'phone': "Telefon",
     'offer': "Oferta",
     'offer.disclaimer': "Dla klientów zainteresowanych księgowością internetową (QuickBooks) oferujemy zniżkę na zakup miesięcznej subskrypcji.",
-    'offer.freeConsult': "Umów się na bezpłatną konsultację",
+    'offer.freeConsult': "Umów się na konsultację",
     'offer.timeOpen': "Godziny otwarcia: Poniedziałek-Piątek 9:00 - 18:00 Sobota 9:00 - 13:00",
     'offer.name': "Imię",
     'offer.email': "Twój adres email",
